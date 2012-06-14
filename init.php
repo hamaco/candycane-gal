@@ -20,7 +20,7 @@ CakeEventManager::instance()->attach(function ($event)
     }, $text);
 
     foreach ($gals as $search => $replace) {
-      if (strpos($text, $search) !== false) {
+      if (empty($replace) === false && strpos($text, $search) !== false) {
         $text = str_replace($search, $replace[array_rand($replace)], $text);
       }
     }
