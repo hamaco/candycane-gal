@@ -1,7 +1,7 @@
 <?php
 
 $pluginContainer = ClassRegistry::getObject('PluginContainer');
-$pluginContainer->installed('cc_gal', '0.0.1');
+$pluginContainer->installed('cc_gal', '0.2');
 
 App::uses('CakeEventManager', 'Event');
 
@@ -26,5 +26,5 @@ CakeEventManager::instance()->attach(function ($event)
     }
     $text = str_replace(array_keys($replaced_tags), array_values($replaced_tags), $text);
 
-    $event->result['text'] = $text;
+    $event->data['text'] = $event->result['text'] = $text;
   }, 'Helper.Candy.afterTextilizable');
